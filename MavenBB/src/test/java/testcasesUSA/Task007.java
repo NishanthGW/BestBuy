@@ -1,5 +1,7 @@
 package testcasesUSA;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
@@ -7,7 +9,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import pages.HomePage;
-import pages.USA_Menu;
+import pages.USA_MenuNew;
 
 public class Task007 {
 	
@@ -20,6 +22,7 @@ public class Task007 {
 		System.setProperty("Webdriver.chrome.driver", "C:\\Users\\godwi\\eclipse-workspace\\MavenSaucedemo\\driver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5000));
 		driver.get("https://www.bestbuy.com/");
 		HomePage P1 = new HomePage(driver);
 		P1.usa();
@@ -28,7 +31,7 @@ public class Task007 {
 	@Test
 	public void ShopByDepartment() throws InterruptedException {
 		try{
-			USA_Menu Um = new USA_Menu(driver);
+			USA_MenuNew Um = new USA_MenuNew(driver);
 			Um.menu();
 			Um.AddAppliances();
 			Um.AddAudio();

@@ -1,12 +1,14 @@
 package testcasesUSA;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import pages.HomePage;
+import pages.HomePageNew;
 
 public class Task006 {
 	
@@ -19,13 +21,14 @@ public class Task006 {
 		System.setProperty("Webdriver.chrome.driver", "C:\\Users\\godwi\\eclipse-workspace\\MavenSaucedemo\\driver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5000));
 		driver.get("https://www.bestbuy.com/");
 	}
 	
 	@Test
 	public void search() throws InterruptedException{
 		try{
-			HomePage HP = new HomePage(driver);
+			HomePageNew HP = new HomePageNew(driver);
 			HP.usa();
 			HP.search("Apple MegSafe Battery Pack");
 		}

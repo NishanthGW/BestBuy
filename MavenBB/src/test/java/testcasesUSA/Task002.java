@@ -1,6 +1,7 @@
 package testcasesUSA;
 
 import java.io.IOException;
+import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -21,7 +22,8 @@ public class Task002 {
 	public void Setup() throws InterruptedException {
 		System.setProperty("Webdriver.chrome.driver", "C:\\Users\\godwi\\eclipse-workspace\\MavenSaucedemo\\driver\\chromedriver.exe");
 		driver = new ChromeDriver();
-		driver.manage().window().maximize();	
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5000));
 	}
 	
 	@Test

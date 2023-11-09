@@ -1,20 +1,19 @@
 package testcasesUSA;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.HomePage;
-import pages.USA_Menu;
+import pages.USA_MenuNew;
 
 public class Task004 {
 	
 	//Task4 : validation of title in each Menu page
 	//4. Write a code for navigation of all Menu and validation of title in each page.
-
-//	Issues ::
-//		1. Need to complete OtherMenuOpt...
 	
 	WebDriver driver;
 	
@@ -23,6 +22,7 @@ public class Task004 {
 		System.setProperty("Webdriver.chrome.driver", "C:\\Users\\godwi\\eclipse-workspace\\MavenSaucedemo\\driver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5000));
 		driver.get("https://www.bestbuy.com/");
 		HomePage P1 = new HomePage(driver);
 		P1.usa();
@@ -31,7 +31,7 @@ public class Task004 {
 	@Test
 	public void ShopMenu() throws InterruptedException {
 		try{		
-			USA_Menu USAmenu = new USA_Menu(driver);
+			USA_MenuNew USAmenu = new USA_MenuNew(driver);
 			USAmenu.MenuDeal();
 			USAmenu.SupportServise();
 			USAmenu.Brands();
@@ -49,7 +49,7 @@ public class Task004 {
 	
 	@AfterTest
 	public void end() {
-		driver.close();	
+		driver.close();
 	}
 
 }

@@ -1,5 +1,7 @@
 package testcasesUSA;
 
+import java.time.Duration;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -7,7 +9,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import pages.HPBottomlinks;
+import pages.HPBottomlinksNew;
 import pages.HomePage;
 
 public class Task005 {
@@ -21,6 +23,7 @@ public class Task005 {
 		System.setProperty("Webdriver.chrome.driver", "C:\\Users\\godwi\\eclipse-workspace\\MavenSaucedemo\\driver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5000));
 		driver.get("https://www.bestbuy.com/");
 		HomePage P1 = new HomePage(driver);
 		P1.usa();
@@ -30,7 +33,7 @@ public class Task005 {
 	@Test
 	public void BottomLinks() throws InterruptedException {
 		try{
-			HPBottomlinks BL = new HPBottomlinks(driver);
+			HPBottomlinksNew BL = new HPBottomlinksNew(driver);
 			BL.OrderPurchases();
 			BL.SupportServices();
 			BL.Partnerships();

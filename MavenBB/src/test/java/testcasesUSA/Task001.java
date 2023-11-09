@@ -1,6 +1,7 @@
 package testcasesUSA;
 
 import java.io.IOException;
+import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,6 +10,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import pages.HomePage;
+import pages.HomePageNew;
 
 public class Task001 {
 	
@@ -21,14 +23,15 @@ public class Task001 {
 	public void SETUP() {
 		System.setProperty("Webdriver.chrome.driver", "C:\\Users\\godwi\\eclipse-workspace\\MavenSaucedemo\\driver\\chromedriver.exe");
 		driver = new ChromeDriver();
-		driver.manage().window().maximize();		
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5000));
 	}
 	
 	@Test
 	public void URL() throws InterruptedException, IOException {
 		try{
 			driver.get("https://www.bestbuy.com/");
-	        HomePage HP = new HomePage(driver);
+	        HomePageNew HP = new HomePageNew(driver);
 	        HP.usa();
 		        String ExpURL001 =  "https://www.bestbuy.com/?intl=nosplash";
 		        String ActURL001 = driver.getCurrentUrl();
